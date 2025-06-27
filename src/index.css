@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Poppins", sans-serif; /* Contoh ganti font, import dulu font-nya */
+}
+
+/* Kustomisasi Tombol Warning (kuning/oranye) */
+.btn-warning {
+  background-color: #f97b22 !important; /* Ganti dengan kode warna dari desain */
+  border-color: #f97b22 !important;
+}
+
+.btn-warning:hover {
+  background-color: #e06c1a !important;
+  border-color: #e06c1a !important;
+}

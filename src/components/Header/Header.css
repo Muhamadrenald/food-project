@@ -1,0 +1,24 @@
+.nav-link-custom {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #ffb30e; /* Warna saat hover, sesuaikan dengan tema */
+}
+
+.nav-link-custom::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #ffb30e; /* Warna garis bawah, sesuaikan dengan tema */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link-custom:hover::after {
+  width: 100%;
+  left: 0;
+}
