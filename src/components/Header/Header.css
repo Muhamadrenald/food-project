@@ -22,3 +22,14 @@
   width: 100%;
   left: 0;
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffae00 0%, #ff8a00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.orange-icon {
+  color: #ff8a00; /* Solid orange color for icons */
+}

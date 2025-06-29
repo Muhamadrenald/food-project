@@ -13,6 +13,7 @@ import FoodPromo from "./components/FoodPromo";
 
 import { menuItems, DEFAULT_ACTIVE_CATEGORY } from "./constants/data";
 import Contact from "./components/Contact";
+import PromoBanner from "./components/Header/PromoBanner/PromoBanner";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -103,13 +104,13 @@ function App() {
       />
 
       <div className="py-20" id="menu">
-        <Container className="position-relative">
+        <Container className="relative">
           <SectionTitle
             title="Popular Menus"
-            subtitle="Check our best-selling dishes that you can order."
+            // subtitle="Check our best-selling dishes that you can order."
           />
 
-          <div className="position-relative">
+          <div className="relative">
             {filteredItems.length > 0 && totalPages > 1 && !isMobile && (
               <>
                 <button
@@ -143,12 +144,9 @@ function App() {
             )}
 
             {filteredItems.length > 0 ? (
-              <div className="row g-3 g-lg-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 lg:gap-4">
                 {getCurrentItems().map((item) => (
-                  <div
-                    key={item.id}
-                    className="col-12 col-sm-6 col-lg-4 col-xl-3"
-                  >
+                  <div key={item.id} className="w-full">
                     <FoodCard
                       image={item.image}
                       title={item.title}
@@ -160,14 +158,14 @@ function App() {
               </div>
             ) : (
               <div className="text-center py-4">
-                <p className="text-muted fs-5 mb-0">
+                <p className="text-muted text-lg mb-0">
                   No items found for this category.
                 </p>
               </div>
             )}
 
             {filteredItems.length > 0 && totalPages > 1 && isMobile && (
-              <div className="d-flex justify-content-center gap-3 mt-4">
+              <div className="flex justify-center gap-3 mt-4">
                 <button
                   onClick={handlePrevPage}
                   disabled={currentPage === 0}
@@ -194,6 +192,7 @@ function App() {
 
       <FoodPromo />
       <Contact />
+      <PromoBanner />
       <Footer />
     </div>
   );

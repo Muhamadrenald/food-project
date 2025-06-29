@@ -1,76 +1,142 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FiMail, FiHeart } from "react-icons/fi";
 
 const Footer = () => {
+  // Data untuk link agar mudah dikelola
+  const topCities = [
+    ["San Francisco", "Miami", "San Diego", "East Bay", "Long Beach"],
+    ["Los Angeles", "Washington DC", "Seattle", "Portland", "Nashville"],
+    ["New York City", "Orange County", "Atlanta", "Charlotte", "Denver"],
+    ["Chicago", "Phoenix", "Las Vegas", "Sacramento", "Oklahoma City"],
+    ["Columbus", "New Mexico", "Albuquerque", "Sacramento", "New Orleans"],
+  ];
+
+  const companyLinks = ["About us", "Team", "Careers", "Blog"];
+  const contactLinks = ["Help & Support", "Partner with us", "Ride with us"];
+  const legalLinks = [
+    "Terms & Conditions",
+    "Refund & Cancellation",
+    "Privacy Policy",
+    "Cookie Policy",
+  ];
+
   return (
-    <div className="bg-dark text-white pt-5 pb-4">
-      <Container>
-        <Row>
-          {/* Kolom 1: Logo & Deskripsi */}
-          <Col md={6} lg={3} className="mb-4">
-            <h5 className="fw-bold mb-3">FoodWagon</h5>
-            <p className="text-white-50">
-              The best food ordering and delivery service for you.
-            </p>
-          </Col>
+    <footer className="bg-[#1D1D1D] text-gray-400 pt-20 pb-8">
+      <div className="container mx-auto px-4">
+        {/* Bagian "Our top cities" */}
+        <div className="mb-16">
+          <h3 className="text-2xl ml-7 font-bold text-white mb-4">
+            Our top cities
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-4 gap-x-8">
+            {topCities.map((column, colIndex) => (
+              <ul key={colIndex} className="space-y-3">
+                {column.map((city, cityIndex) => (
+                  <li
+                    key={cityIndex}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
+                    {city}
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
 
-          {/* Kolom 2: Opening Restaurant */}
-          <Col md={6} lg={3} className="mb-4">
-            <h5 className="mb-3">Opening Restaurant</h5>
-            <ul className="list-unstyled">
-              <li className="mb-2">Sa - We: 09:00am - 10:00pm</li>
-              <li className="mb-2">Thursday: 09:00am - 05:00pm</li>
-              <li className="mb-2">Friday: Closed</li>
+        <hr className="border-gray-700" />
+
+        {/* Bagian Link Utama & Form */}
+        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-8 my-12">
+          {/* Kolom Company */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className="font-bold ml-7 text-white mb-4">Company</h4>
+            <ul className="space-y-3">
+              {companyLinks.map((link, i) => (
+                <li
+                  key={i}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  {link}
+                </li>
+              ))}
             </ul>
-          </Col>
+          </div>
 
-          {/* Kolom 3: User Link */}
-          <Col md={6} lg={3} className="mb-4">
-            <h5 className="mb-3">User Link</h5>
-            <ul className="list-unstyled">
-              <li className="mb-2">
-                <a href="#" className="text-white-50 text-decoration-none">
-                  About Us
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="text-white-50 text-decoration-none">
-                  Contact Us
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="text-white-50 text-decoration-none">
-                  Order Delivery
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="text-white-50 text-decoration-none">
-                  Payment & Tax
-                </a>
-              </li>
+          {/* Kolom Contact */}
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className="font-bold ml-7 text-white mb-4">Contact</h4>
+            <ul className="space-y-3">
+              {contactLinks.map((link, i) => (
+                <li
+                  key={i}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  {link}
+                </li>
+              ))}
             </ul>
-          </Col>
+          </div>
 
-          {/* Kolom 4: Contact Us */}
-          <Col md={6} lg={3} className="mb-4">
-            <h5 className="mb-3">Contact Us</h5>
-            <p className="text-white-50">
-              123 Main Street, Yogyakarta, Indonesia
-              <br />
-              +62 012 3456 789
-            </p>
-          </Col>
-        </Row>
-        <hr className="bg-white-50" />
-        <Row>
-          <Col className="text-center text-white-50">
-            <p>
-              &copy; {new Date().getFullYear()} FoodWagon. All Rights Reserved.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          {/* Kolom Legal */}
+          <div className="md:col-span-2 lg:col-span-3">
+            <h4 className="font-bold ml-7 text-white mb-4">Legal</h4>
+            <ul className="space-y-3">
+              {legalLinks.map((link, i) => (
+                <li
+                  key={i}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  {link}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Kolom Follow Us & Subscribe */}
+          <div className="md:col-span-6 lg:col-span-5">
+            <h4 className="font-bold text-slate-300 mb-4">FOLLOW US</h4>
+            <div className="flex space-x-4 mb-8">
+              <FaInstagram size={20} />
+              <FaFacebookF size={20} />
+              <FaTwitter size={20} />
+            </div>
+            <h4 className="font-semibold text-slate-300 mb-4">
+              Receive exclusive offers in your mailbox
+            </h4>
+            <div className="flex">
+              <div className="relative flex-grow">
+                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                <input
+                  type="email"
+                  placeholder="Enter Your email"
+                  className="w-full bg-gray-800 rounded-l-md py-2.5 pl-10 pr-4 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white"
+                />
+              </div>
+              <button className="bg-yellow-500 text-white font-bold py-2.5 px-6 !rounded-r-md hover:bg-yellow-600 transition-colors">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr className="border-gray-700" />
+
+        {/* Bagian Copyright */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-sm">
+          <p className="mb-4 md:mb-0">
+            All rights Reserved. © Your Company, 2021
+          </p>
+          <p className="flex items-center">
+            Made with <FiHeart className="mx-1 text-red-500" /> by{" "}
+            <a href="#" className="font-bold text-white ml-1 hover:underline">
+              Themewagon
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
