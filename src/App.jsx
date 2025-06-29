@@ -191,7 +191,7 @@ function App() {
       </div>
 
       <FoodPromo />
-      <Contact />
+      {/* <Contact /> */}
       <PromoBanner />
       <Footer />
     </div>
